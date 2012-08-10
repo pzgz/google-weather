@@ -24,6 +24,7 @@ class GoogleWeather
     else
       resp = self.class.get(Path, weather_options)
       resp.body.force_encoding 'utf-8'
+      pp resp.body
       @weather = resp['xml_api_reply']['weather']
     end
   end
@@ -50,6 +51,7 @@ class GoogleWeather
         :oe => 'utf-8'
       },
       :format => :xml,
+      :headers => {"User-Agent" => "Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K) AppleWebkit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"}
     }
   end
 
