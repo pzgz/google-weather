@@ -25,6 +25,7 @@ class GoogleWeather
       resp = self.class.get(Path, weather_options)
       resp.body.force_encoding 'utf-8'
       @weather = resp['xml_api_reply']['weather']
+    end
   end
 
   def forecast_information
